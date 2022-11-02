@@ -1722,8 +1722,8 @@ class _FlutterSliderState extends State<FlutterSlider>
   drawHandlers() {
     List<Positioned> items = []..addAll([
         Function.apply(_inactiveTrack, []),
-        Function.apply(_centralWidget, []),
         Function.apply(_activeTrack, []),
+        Function.apply(_centralWidget, []),
       ]);
     items..addAll(_points);
 
