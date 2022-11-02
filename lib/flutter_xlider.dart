@@ -1724,6 +1724,7 @@ class _FlutterSliderState extends State<FlutterSlider>
         Function.apply(_inactiveTrack, []),
         Function.apply(_activeTrack, []),
         Function.apply(_centralWidget, []),
+        Function.apply(_overlayWidget, [])
       ]);
     items..addAll(_points);
 
@@ -2223,6 +2224,16 @@ class _FlutterSliderState extends State<FlutterSlider>
     );
   }
 
+  Positioned _overlayWidget() {
+    return widget.trackBar.overlayWidget ?? Positioned(
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      child: Center(child: Container()),
+    );
+  }
+
   void _callbacks(String callbackName, int handlerIndex) {
     dynamic lowerValue = _outputLowerValue;
     dynamic upperValue = _outputUpperValue;
@@ -2516,6 +2527,7 @@ class FlutterSliderTrackBar {
   final double activeTrackBarHeight;
   final double inactiveTrackBarHeight;
   final Widget? centralWidget;
+  final Positioned? overlayWidget;
   final bool activeTrackBarDraggable;
 
   const FlutterSliderTrackBar({
@@ -2526,6 +2538,7 @@ class FlutterSliderTrackBar {
     this.activeTrackBarHeight = 3.5,
     this.inactiveTrackBarHeight = 3,
     this.centralWidget,
+    this.overlayWidget,
     this.activeTrackBarDraggable = true,
   }) : assert(activeTrackBarHeight > 0 && inactiveTrackBarHeight > 0);
 
@@ -2543,7 +2556,9 @@ class FlutterSliderTrackBar {
         '-' +
         inactiveTrackBarHeight.toString() +
         '-' +
-        centralWidget.toString();
+        centralWidget.toString() + 
+        '-' +
+        overlayWidget.toString();
   }
 }
 
