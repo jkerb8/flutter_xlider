@@ -12,6 +12,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:developer';
 
 class FlutterSlider extends StatefulWidget {
   final Key? key;
