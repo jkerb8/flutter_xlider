@@ -12,7 +12,6 @@
 
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'dart:developer';
 
 class FlutterSlider extends StatefulWidget {
   final Key? key;
@@ -384,13 +383,11 @@ class _FlutterSliderState extends State<FlutterSlider>
         widget.maximumDistance > 0 &&
         (_upperValue! - _lowerValue!) > widget.maximumDistance) {
       //throw 'lower and upper distance is more than maximum distance';
-      log('lower and upper distance is more than maximum distance');
     }
     if (widget.rangeSlider == true &&
         widget.minimumDistance > 0 &&
         (_upperValue! - _lowerValue!) < widget.minimumDistance) {
       //throw 'lower and upper distance is less than minimum distance';
-      log('lower and upper distance is less than minimum distance');
     }
 
     Offset animationStart = Offset(0, 0);
